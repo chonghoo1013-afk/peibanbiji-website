@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import latest from "../../data/latest.json";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+<BaseLayout title={`${post.data.title}｜陪伴笔记`} description={post.data.description}>
+  <main>
+    <p class="back"><a href="/blog">← 文字版内容</a></p>
+    <article>
+      <h1>{post.data.title}</h1>
+      <div class="body"><Content /></div>
+    </article>
+    <div class="ctas">
+      <a class="cta cta-primary" href={latest.youtubeUrl} target="_blank" rel="noopener">观看完整影片 →</a>
+      <a class="cta cta-secondary" href={latest.gumroadUrl} target="_blank" rel="noopener">获取手册 →</a>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .back { margin-top: 32px; }
+  article h1 { font-size: 28px; }
+  .body :global(h2) { font-size: 20px; margin-top: 36px; }
+  .body :global(p) { margin: 0 0 20px; }
+  .ctas {
+    display: flex;
+    gap: 14px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--paper-shadow);
+  }
+  .cta { padding: 14px 20px; border-radius: 8px; text-decoration: none; font-weight: 500; flex: 1; text-align: center; }
+  .cta-primary { background: var(--moss); color: white; }
+  .cta-secondary { background: white; color: var(--ink); border: 1px solid var(--moss); }
+</style>

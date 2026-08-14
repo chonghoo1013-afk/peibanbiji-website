@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+<BaseLayout title="文字版内容｜陪伴笔记">
+  <main>
+    <p class="back"><a href="/">← 陪伴笔记</a></p>
+    <h1>文字版内容</h1>
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+        </li>
+      ))}
+    </ul>
+  </main>
+</BaseLayout>
+
+<style>
+  .back { margin-top: 32px; }
+  .post-list { list-style: none; padding: 0; }
+  .post-list li { margin-bottom: 18px; }
+  .post-list a { font-family: "Noto Serif TC", serif; font-size: 19px; }
+</style>

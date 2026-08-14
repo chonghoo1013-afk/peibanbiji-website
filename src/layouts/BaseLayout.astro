@@ -1,0 +1,44 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "陪伴笔记｜写给需要陪伴与自我对话的你。" } = Astro.props;
+---
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2235%22 fill=%22none%22 stroke=%22%236B7A5A%22 stroke-width=%228%22/></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --paper: #F6F1E6;
+        --paper-shadow: #EDE5D4;
+        --moss: #6B7A5A;
+        --moss-dark: #4C5B3F;
+        --ink: #3B372E;
+        --ink-soft: #6B6558;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Noto Sans TC", sans-serif;
+        line-height: 1.75;
+      }
+      h1, h2, h3 { font-family: "Noto Serif TC", serif; font-weight: 600; line-height: 1.4; }
+      a { color: var(--moss-dark); }
+      main { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

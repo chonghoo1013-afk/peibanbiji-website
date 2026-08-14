@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EnsoMark from "../components/EnsoMark.astro";
+import latest from "../data/latest.json";
+---
+<BaseLayout title="陪伴笔记｜写给需要陪伴与自我对话的你">
+  <main class="hub">
+    <div class="mark"><EnsoMark size={140} /></div>
+    <h1>陪伴笔记</h1>
+    <p class="tagline">写给需要陪伴与自我对话的你</p>
+
+    <div class="latest">
+      <p class="label">本周内容</p>
+      <p class="video-title">{latest.videoTitle}</p>
+    </div>
+
+    <div class="ctas">
+      <a class="cta cta-primary" href={latest.youtubeUrl} target="_blank" rel="noopener">
+        观看完整影片 →
+      </a>
+      <a class="cta cta-secondary" href={latest.gumroadUrl} target="_blank" rel="noopener">
+        获取《先别急着照顾别人》手册 →
+      </a>
+    </div>
+
+    <nav class="links">
+      <a href="/blog">阅读文字版内容</a>
+    </nav>
+  </main>
+</BaseLayout>
+
+<style>
+  .hub {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .mark { margin-bottom: 8px; }
+  h1 { font-size: 32px; margin: 0 0 4px; }
+  .tagline { color: var(--ink-soft); margin: 0 0 40px; }
+  .latest {
+    background: white;
+    border: 1px solid var(--paper-shadow);
+    border-radius: 10px;
+    padding: 20px 28px;
+    margin-bottom: 28px;
+    max-width: 480px;
+  }
+  .label { font-size: 13px; color: var(--ink-soft); margin: 0 0 6px; letter-spacing: 1px; }
+  .video-title { font-family: "Noto Serif TC", serif; font-size: 18px; margin: 0; }
+  .ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 380px;
+  }
+  .cta {
+    display: block;
+    padding: 16px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .cta-primary { background: var(--moss); color: white; }
+  .cta-secondary { background: white; color: var(--ink); border: 1px solid var(--moss); }
+  .links { margin-top: 36px; }
+  .links a { font-size: 14px; color: var(--ink-soft); }
+</style>
