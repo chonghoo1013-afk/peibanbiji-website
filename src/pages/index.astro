@@ -3,28 +3,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import EnsoMark from "../components/EnsoMark.astro";
 import latest from "../data/latest.json";
 ---
-<BaseLayout title="陪伴笔记｜写给需要陪伴与自我对话的你">
+<BaseLayout title="陪伴筆記｜寫給需要陪伴與自我對話的你">
   <main class="hub">
     <div class="mark"><EnsoMark size={140} /></div>
-    <h1>陪伴笔记</h1>
-    <p class="tagline">写给需要陪伴与自我对话的你</p>
+    <h1>陪伴筆記</h1>
+    <p class="tagline">寫給需要陪伴與自我對話的你</p>
 
     <div class="latest">
-      <p class="label">本周内容</p>
+      <p class="label">本週內容</p>
       <p class="video-title">{latest.videoTitle}</p>
     </div>
 
     <div class="ctas">
       <a class="cta cta-primary" href={latest.youtubeUrl} target="_blank" rel="noopener">
-        观看完整影片 →
+        觀看完整影片 →
       </a>
       <a class="cta cta-secondary" href={latest.gumroadUrl} target="_blank" rel="noopener">
-        获取《先别急着照顾别人》手册 →
+        獲取《先別急著照顧別人》手冊 →
       </a>
     </div>
 
     <nav class="links">
-      <a href="/blog">阅读文字版内容</a>
+      <a href="/blog">閱讀文字版內容</a>
     </nav>
   </main>
 </BaseLayout>

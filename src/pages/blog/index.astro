@@ -6,10 +6,10 @@ const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 ---
-<BaseLayout title="文字版内容｜陪伴笔记">
+<BaseLayout title="文字版內容｜陪伴筆記">
   <main>
-    <p class="back"><a href="/">← 陪伴笔记</a></p>
-    <h1>文字版内容</h1>
+    <p class="back"><a href="/">← 陪伴筆記</a></p>
+    <h1>文字版內容</h1>
     <ul class="post-list">
       {posts.map((post) => (
         <li>

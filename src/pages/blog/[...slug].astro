@@ -14,16 +14,16 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 ---
-<BaseLayout title={`${post.data.title}｜陪伴笔记`} description={post.data.description}>
+<BaseLayout title={`${post.data.title}｜陪伴筆記`} description={post.data.description}>
   <main>
-    <p class="back"><a href="/blog">← 文字版内容</a></p>
+    <p class="back"><a href="/blog">← 文字版內容</a></p>
     <article>
       <h1>{post.data.title}</h1>
       <div class="body"><Content /></div>
     </article>
     <div class="ctas">
-      <a class="cta cta-primary" href={latest.youtubeUrl} target="_blank" rel="noopener">观看完整影片 →</a>
-      <a class="cta cta-secondary" href={latest.gumroadUrl} target="_blank" rel="noopener">获取手册 →</a>
+      <a class="cta cta-primary" href={latest.youtubeUrl} target="_blank" rel="noopener">觀看完整影片 →</a>
+      <a class="cta cta-secondary" href={latest.gumroadUrl} target="_blank" rel="noopener">獲取手冊 →</a>
     </div>
   </main>
 </BaseLayout>
